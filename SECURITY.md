@@ -16,7 +16,7 @@ credited in the advisory unless they ask not to be. There is no paid bounty.
 In scope:
 
 - this repository (`packages/mot3r`, `install/`, `examples/`)
-- `https://mcp.mot3r.com`, `https://api.mot3r.com`, `https://mot3r.com`
+- the hosts `mcp.mot3r.com`, `api.mot3r.com` and `mot3r.com`
 - line mail at `mot.email`
 
 Out of scope: services we do not run, social engineering, physical attacks, denial of service, and findings
