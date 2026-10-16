@@ -27,7 +27,7 @@ export const SERVER_NAME = 'mot';
 export const KEY_PAGE = 'https://mot3r.com';
 export const KEY_HIDDEN = '<value of MOT_KEY, hidden>';
 export const VSCODE_INPUT = Object.freeze({ type: 'promptString', id: 'mot-key', description: 'mot key (mot_...)', password: true });
-const BOM = new RegExp('^' + String.fromCharCode(0xfeff));
+const UTF8_BOM = new RegExp('^' + String.fromCharCode(0xfeff));
 
 /** Where configs live. MOT_USER_HOME and MOT_HOME exist for tests and portable setups. */
 export function envPaths(env = process.env, plat = osPlatform()) {
@@ -104,7 +104,7 @@ export const HOSTS = {
 
 /** Merge `value` at `path` into a JSON document. Throws on anything that is not a JSON object. */
 export function mergeJson(text, path, value) {
-  const src = (text ?? '').replace(BOM, '');
+  const src = (text ?? '').replace(UTF8_BOM, '');
   let doc = {};
   if (src.trim()) {
     try {
