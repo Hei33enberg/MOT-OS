@@ -1,8 +1,7 @@
 # Governance
 
-mot has one maintainer with final say over direction, scope, naming and the brand. Contributors propose and
-build; the maintainer decides and writes down why. Saying it plainly is more honest than pretending a young
-project is run by vote.
+mot has one lead maintainer. The lead maintainer has the final word on direction, scope, names and the brand.
+Contributors propose and build. The lead maintainer decides and writes down why. There is no vote.
 
 ## Roles
 

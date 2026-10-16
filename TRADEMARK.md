@@ -24,5 +24,5 @@ Open an issue to ask.
 
 ## Why
 
-The hosted service at `mcp.mot3r.com` is what pays for this work. Users should always know whether they are
-talking to it or to someone else.
+The hosted gate at `mcp.mot3r.com` pays for this work. Anyone who wires a line must know whether it speaks to
+the gate or to someone else.

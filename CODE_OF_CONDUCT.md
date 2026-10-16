@@ -1,16 +1,15 @@
 # Code of Conduct
 
-## Our pledge
+## The rule
 
-We want mot to be a project anyone can take part in without harassment, whatever their age, body, ability,
-ethnicity, gender identity and expression, experience, nationality, appearance, race, religion, or sexual
-identity and orientation.
+Anyone may take part in mot without harassment, whatever their age, body, ability, ethnicity, gender identity
+and expression, experience, nationality, appearance, race, religion, or sexual identity and orientation.
 
 ## What we expect
 
-- Be direct and be kind. Critique the code, not the person.
+- Be direct. Be decent. Critique the code, not the person.
 - Assume good faith. Ask before you conclude.
-- Accept that a maintainer may say no, and say why.
+- A maintainer may say no, and says why.
 - Credit the work of others, including work done by AI agents on someone's behalf.
 
 ## What we do not accept

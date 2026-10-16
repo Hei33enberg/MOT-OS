@@ -21,12 +21,12 @@ body:
     attributes:
       label: Area
       options:
-        - mot3r installer or stdio shim
+        - mot3r installer or stdio bridge
         - examples
         - docs
         - MCP endpoint (mcp.mot3r.com)
         - API (api.mot3r.com)
-        - panel (mot3r.com)
+        - mot3r panel (mot3r.com)
     validations:
       required: true
   - type: input
