@@ -1,0 +1,41 @@
+{
+  "name": "mot3r",
+  "version": "0.3.3",
+  "description": "Installer and stdio bridge for mot: writes the mot MCP endpoint into Claude Code, Claude Desktop, Cursor and VS Code. Zero dependencies.",
+  "license": "MIT",
+  "type": "module",
+  "homepage": "https://github.com/Hei33enberg/mot-os/tree/main/packages/mot3r",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hei33enberg/mot-os.git",
+    "directory": "packages/mot3r"
+  },
+  "bin": {
+    "mot3r": "./bin/mot3r.mjs"
+  },
+  "exports": {
+    ".": "./mot3r.mjs"
+  },
+  "files": [
+    "mot3r.mjs",
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "keywords": [
+    "mot",
+    "mcp",
+    "model-context-protocol",
+    "claude-code",
+    "claude-desktop",
+    "cursor",
+    "vscode",
+    "agents"
+  ]
+}
