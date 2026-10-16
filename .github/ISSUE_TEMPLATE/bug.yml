@@ -1,0 +1,61 @@
+name: Bug report
+description: Something in this repository or at the mot endpoint does not work as documented
+labels: [bug, triage]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened
+      description: What you did, what you expected, what you got.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: The smallest set of steps or the exact JSON-RPC request. Never paste your key.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - mot3r installer or stdio shim
+        - examples
+        - docs
+        - MCP endpoint (mcp.mot3r.com)
+        - API (api.mot3r.com)
+        - panel (mot3r.com)
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: MCP client and version
+      description: For example Claude Code 2.x, Cursor 1.x, VS Code 1.x.
+  - type: input
+    id: version
+    attributes:
+      label: mot3r version
+      description: 'Output of: node packages/mot3r/mot3r.mjs --version'
+  - type: input
+    id: node
+    attributes:
+      label: Node version
+      description: 'Output of: node --version'
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - macOS
+        - Linux
+        - Windows
+        - Other
+  - type: textarea
+    id: logs
+    attributes:
+      label: Output
+      description: Error text or JSON-RPC response. Remove keys and personal data first.
+      render: shell
