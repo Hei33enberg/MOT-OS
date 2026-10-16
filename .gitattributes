@@ -1,0 +1,9 @@
+# Every text file is stored and checked out with LF, whatever core.autocrlf says.
+# install/install.sh embeds packages/mot3r/mot3r.mjs verbatim, and sh breaks on CRLF.
+* text=auto eol=lf
+
+*.png binary
+*.ico binary
+*.jpg binary
+*.gif binary
+*.webp binary

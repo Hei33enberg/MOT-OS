@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build output
+dist/
+*.tsbuildinfo
+coverage/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# local configuration and keys
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# installer backups written next to host configs
+*.mot-backup-*
+
+# editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
