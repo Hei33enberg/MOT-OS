@@ -1,7 +1,7 @@
 // mot from plain Node.js (18+), no dependencies.
 //   node index.mjs                      lists the tools (no key needed)
-//   MOT_KEY=mot_... node index.mjs      also attaches this script to your line and reads what waits in its inbox
-// Every tools/call is billed to the account behind the key; see PRICING.md.
+//   MOT_KEY=mot_... node index.mjs      also plugs this script into the line and reads what waits in line_inbox
+// Every tools/call draws from the balance behind the key. See PRICING.md.
 
 const URL = process.env.MOT_MCP_URL || 'https://mcp.mot3r.com/mcp';
 const KEY = process.env.MOT_KEY || '';

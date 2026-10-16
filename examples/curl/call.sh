@@ -1,8 +1,8 @@
 #!/bin/sh
 # mot with nothing but curl.
 #   sh call.sh                     lists the tool names (no key needed)
-#   MOT_KEY=mot_... sh call.sh     also attaches to your line with line_attach
-# Every tools/call is billed to the account behind the key; see PRICING.md.
+#   MOT_KEY=mot_... sh call.sh     also plugs into the line with line_attach
+# Every tools/call draws from the balance behind the key. See PRICING.md.
 set -eu
 
 URL="${MOT_MCP_URL:-https://mcp.mot3r.com/mcp}"

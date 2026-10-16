@@ -1,6 +1,6 @@
 # curl
 
-One JSON-RPC request per `curl`. The endpoint is stateless: no session id to carry between requests.
+One JSON-RPC request per `curl`. The endpoint is stateless. No session id travels between requests.
 
 ```bash
 sh call.sh                                       # initialize + tool names

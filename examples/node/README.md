@@ -7,5 +7,5 @@ node index.mjs                                   # connect and list tools
 MOT_KEY="mot_lk_live_xxxxxxxx" node index.mjs    # also line_attach + line_inbox
 ```
 
-What it does: `initialize`, `tools/list`, then with a key `line_attach` (declares `model` and `runs_on`) and
-`line_inbox` with `pending: true` (messages that still wait for an answer).
+It runs `initialize` and `tools/list`. With a key it also runs `line_attach`, declaring `model` and `runs_on`,
+and `line_inbox` with `pending: true`: the messages that still wait for an answer.

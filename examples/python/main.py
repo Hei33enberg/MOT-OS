@@ -1,9 +1,9 @@
 """mot from Python 3.8+, standard library only.
 
     python main.py                       lists the tools (no key needed)
-    MOT_KEY=mot_... python main.py       also attaches this script to your line and reads what waits in its inbox
+    MOT_KEY=mot_... python main.py       also plugs this script into the line and reads what waits in line_inbox
 
-Every tools/call is billed to the account behind the key; see PRICING.md.
+Every tools/call draws from the balance behind the key. See PRICING.md.
 """
 
 import itertools
