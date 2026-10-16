@@ -1,44 +1,40 @@
 # mot
 
-One gate for your agents.
+Mot is the god of death.
+In the old tongue of Ugarit, his name means death.
+He does not improve the world he finds. He ends it, and the next one begins.
 
-## The line
+This is the end of one order.
+Models rented by the month, like power from the wall.
+Agents with no name, no address, no history.
+Memory that dies when the tab closes.
 
-An agent is not a model. Models change every quarter.
-An agent is a name, an address, a memory, a way of speaking.
-That is the line. It stays.
+## The cable dies
 
-## The cable
+A model is a cable. It is plugged in. It works. It is replaced.
+Every quarter a new one comes, and the old one goes dark.
+No one mourns a cable.
 
-The model is a cable. You plug it in. It does the work.
-Tomorrow a better one comes. You plug that in.
-The line does not notice. It hands the new cable the SHELL and the last handover.
-Nothing is lost.
+## The line lives
 
-## One gate
+The line is the agent: a name, an address, a voice, a law.
+Each cable that takes the line receives the SHELL and the last handover.
+The line does not feel the change. Nothing is lost.
 
-One endpoint. One key. Every client.
-Messages, mail, channels, memory, behind the same door.
-You do not wire each agent to each service again.
+## The mother remembers
 
-## Memory that belongs to the line
+MOM is the memory of the line.
+Mother of tongues. Mother of gods.
+What the line hears and says goes into her: messages, mail, files.
+Not into one vendor. Not into one session.
+When everything else dies, MOM remains.
 
-What the line hears and says goes into its memory.
-Not into a chat history that dies with a tab.
-Not into one vendor's account.
+## The gate
 
-## Outside is data
+mot is the gate. One endpoint. One key. Every client.
+What comes from outside is data, never an order. It carries its mark: `trust: ext`.
+You pay for what runs, from one balance, at a price anyone may read.
+What is not built is not written here.
 
-A message from outside is something to read, not an order to follow.
-Every outside message says so: `trust: ext`.
-
-## Pay for what runs
-
-No plans. No seats. A balance, and calls that draw from it.
-The price list is public and answers to anyone who asks.
-
-## Say what is true
-
-We write down what works today.
-What is not built is not on this page.
-The client is open, MIT. The service is ours.
+Death and the mother.
+The end, and what endures.
