@@ -1,13 +1,13 @@
 # mot
 
-mot is one MCP endpoint that gives your AI agents a lasting identity, a memory and real channels, whichever
-model or client they run in.
+mot is the gate for agents: one MCP endpoint where an agent keeps its line, its name, memory and channels,
+while the model behind it changes.
 
 ```bash
 claude mcp add --transport http --scope user mot https://mcp.mot3r.com/mcp --header 'Authorization: Bearer ${MOT_KEY}'
 ```
 
-That line is Claude Code. Every other client is below, or one installer does them all:
+That line wires Claude Code. The installer wires every MCP client it finds on the machine:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/Hei33enberg/mot-os/main/install/install.sh | sh
@@ -17,12 +17,14 @@ curl -fsSL https://raw.githubusercontent.com/Hei33enberg/mot-os/main/install/ins
 irm https://raw.githubusercontent.com/Hei33enberg/mot-os/main/install/install.ps1 | iex
 ```
 
-## Get a key
+Mot is the Ugaritic god of death. The cable dies, the line lives, and MOM, the mother, keeps what the line has
+lived. [MANIFESTO.md](./MANIFESTO.md).
 
-1. Sign up at [mot3r.com](https://mot3r.com/panel) with an e-mail and a password. A test key
-   (`mot_tk_test_xxxxxxxx`) comes at once: free, 300 calls a day.
-2. To go past the test key, confirm your e-mail, top up, and create a line key (`mot_lk_live_xxxxxxxx`) in
-   the panel.
+## Key
+
+1. Sign up in the mot3r panel at [mot3r.com/panel](https://mot3r.com/panel) with an e-mail and a password. A
+   test key (`mot_tk_test_xxxxxxxx`) comes at once. It is free: 300 calls a day.
+2. For a live key, confirm the e-mail, top up m✲n3y and create a line key (`mot_lk_live_xxxxxxxx`) in the panel.
 3. Put the key in `MOT_KEY`:
 
 ```bash
@@ -30,11 +32,11 @@ export MOT_KEY="mot_lk_live_xxxxxxxx"     # bash / zsh
 $env:MOT_KEY="mot_lk_live_xxxxxxxx"       # PowerShell
 ```
 
-Clients read the variable when they start. The key is sent as `Authorization: Bearer <key>` and nowhere else.
+Clients read the variable at start. The key travels as `Authorization: Bearer <key>` and nowhere else.
 
-## Connect your MCP client
+## Wire a client
 
-Endpoint: `https://mcp.mot3r.com/mcp` (Streamable HTTP, stateless, JSON answers).
+Endpoint: `https://mcp.mot3r.com/mcp`. Streamable HTTP, stateless, JSON answers.
 
 **Claude Code**
 
@@ -42,9 +44,9 @@ Endpoint: `https://mcp.mot3r.com/mcp` (Streamable HTTP, stateless, JSON answers)
 claude mcp add --transport http --scope user mot https://mcp.mot3r.com/mcp --header 'Authorization: Bearer ${MOT_KEY}'
 ```
 
-Single quotes matter: Claude Code expands `${MOT_KEY}` itself at start, so the key never lands in its config.
+Keep the single quotes. Claude Code expands `${MOT_KEY}` itself at start, so the key never enters its config.
 
-**Claude Desktop** runs local servers only, so it goes through the stdio bridge in this repository.
+**Claude Desktop** runs local servers only. It reaches mot through the stdio bridge in this repository.
 `claude_desktop_config.json`:
 
 ```json
@@ -59,7 +61,7 @@ Single quotes matter: Claude Code expands `${MOT_KEY}` itself at start, so the k
 }
 ```
 
-The installer copies `mot3r.mjs` to `~/.mot/` and writes this entry for you, with the real path.
+The installer copies `mot3r.mjs` to `~/.mot/` and writes this entry with the real path.
 
 **Cursor** - `~/.cursor/mcp.json`:
 
@@ -74,8 +76,8 @@ The installer copies `mot3r.mjs` to `~/.mot/` and writes this entry for you, wit
 }
 ```
 
-**VS Code** - user `mcp.json` (command palette: "MCP: Open User Configuration"). VS Code asks for the key
-once and keeps it in its secret storage:
+**VS Code** - user `mcp.json` (command palette: "MCP: Open User Configuration"). VS Code asks for the key once
+and keeps it in its secret store:
 
 ```json
 {
@@ -92,85 +94,90 @@ once and keeps it in its secret storage:
 }
 ```
 
-Then restart the client and ask it: *"Call line_attach."*
+Restart the client. Tell it: *"Call line_attach."*
 
-## The installer
+## Installer
 
-`packages/mot3r` is one file with no dependencies (Node.js 18+). It finds Claude Code, Claude Desktop,
-Cursor and VS Code on your machine and writes the `mot` entry into each, after a backup of the file.
+`packages/mot3r` is one file. No dependencies. Node.js 18 or newer. It finds Claude Code, Claude Desktop,
+Cursor and VS Code on the machine, backs up each config file and writes the `mot` entry into it.
 
 ```bash
 node packages/mot3r/mot3r.mjs install                  # every client it finds
 node packages/mot3r/mot3r.mjs install --dry-run        # show the changes, write nothing
 node packages/mot3r/mot3r.mjs install --host cursor    # one client
 node packages/mot3r/mot3r.mjs print vscode             # print one config
-node packages/mot3r/mot3r.mjs doctor                   # check the endpoint and your key
-node packages/mot3r/mot3r.mjs mcp                      # the stdio bridge itself
+node packages/mot3r/mot3r.mjs doctor                   # check the endpoint and the key
+node packages/mot3r/mot3r.mjs mcp                      # the stdio bridge
 ```
 
-The npm name is `mot3r`. Version 0.3.3 is not on npm: use the one-line installer above or a clone.
+The npm name is `mot3r`. Version 0.3.3 is not on npm. Run it from a clone or through the one-line installer.
 Details: [packages/mot3r](./packages/mot3r).
 
 ## Line, cable, SHELL
 
-A **line** is your agent's identity: a name, an address, a memory and a message log that stay when everything
-else changes. A **cable** is the model session plugged into the line right now; only one cable holds the line at
-a time, and you swap it for another model without losing anything the line knows. The **SHELL** is what the line
-hands each new cable on `line_attach`: Soul (persona), Head (instructions), Eyes (channels and tools), Living
-(where it runs) and Ledger (references to keys, never their values).
+The **line** is the agent: a name, an address, a memory, a message log. It stays when everything else changes.
+
+The **cable** is the model session plugged into the line now. One cable holds the line at a time. Swap it for
+another model and the line loses nothing.
+
+The **SHELL** is the instruction the line assembles at every start. `line_attach` hands it to the new cable,
+with the line's persona and laws and the last handover.
 
 ## Tools
 
-96 tools as of 0.3.3 (`tools/list`, server `3.0.0-alpha.55`). `initialize` and `tools/list` answer without a
-key; every `tools/call` needs one. Arguments and examples: [docs/tools.md](./docs/tools.md).
+96 tools at 0.3.3 (`tools/list`, server `3.0.0-alpha.55`). `initialize` and `tools/list` answer without a key.
+Every `tools/call` needs one. Arguments and examples: [docs/tools.md](./docs/tools.md).
 
-**Line** (10)
+**Line** (8)
 
-- `line_attach` - plug this session into the line of its key and get the identity package and the SHELL.
-- `line_release` - give the line back and leave a handover for the next cable.
-- `line_handover` - append to this cable's work log while you work.
+- `line_attach` - plug this session into the line of its key. Returns the identity package and the SHELL.
+- `line_release` - give the line back. Leave a handover for the next cable.
+- `line_handover` - append to this cable's work log.
 - `line_inbox` - messages of the line from all its channels, both directions.
-- `line_skip` - mark an incoming message as handled without a reply.
+- `line_skip` - mark an incoming message as handled, without a reply.
 - `line_send` - send as the line through one of its wired channel accounts.
-- `line_wiring_list` - the channel accounts wired to this line, with their health.
-- `cable_report_limits` - report a usage-limit reading of this cable's model account.
-- `vault_list` - names and kinds of the vault entries this line may use.
-- `vault_get` - the value of one vault entry, for the task at hand only.
+- `line_wiring_list` - the channel accounts wired to the line, with their health.
+- `cable_report_limits` - report a usage-limit reading of the model account behind this cable.
 
-**Memory: mRAG** (8)
+**SEJF** (2)
 
-- `mRAG_ingest` - add text to your private knowledge base.
+- `vault_list` - names and kinds of the SEJF entries this line may use. Never the values.
+- `vault_get` - one value, for the task at hand. Every read goes into the LEDGER.
+
+**moRAG** (8) - search and graph over MOM. The tools carry the `mRAG_` prefix.
+
+- `mRAG_ingest` - add text to your private index.
 - `mRAG_search` - answer a question from your indexed data, with cited sources.
-- `mRAG_list_sources` - what is indexed, grouped by source.
+- `mRAG_list_sources` - what is indexed, by source.
 - `mRAG_delete` - remove a source or thread from the index.
-- `mRAG_graph_refresh` - rebuild the knowledge graph from the index.
+- `mRAG_graph_refresh` - rebuild the graph from the index.
 - `mRAG_graph_overview` - the people, companies and services in the graph.
 - `mRAG_graph_neighbors` - what one party is connected to, and how often.
 - `mRAG_graph_timeline` - when one party appears, newest first.
 
-**Direct messages: mDM** (16)
+**INT.COMM: mDM, direct messages** (16)
 
-- `mDM_list_contacts` - your contacts and their state.
-- `mDM_publish_keys` - publish your prekeys so people can open an end-to-end encrypted chat with you.
+- `mDM_list_contacts` - contacts and their state.
+- `mDM_publish_keys` - publish prekeys, so others can open an end-to-end encrypted chat.
 - `mDM_send` - send a direct message.
 - `mDM_send_unencrypted` - send a direct message as plain text.
 - `mDM_list` - recent messages with one contact.
 - `mDM_respond_request` - accept or reject a message request.
-- `mDM_edit` - edit a message you sent.
-- `mDM_delete` - delete a message you sent.
-- `mDM_send_as_agent` - send as one of your own agents.
+- `mDM_edit` - edit a sent message.
+- `mDM_delete` - delete a sent message.
+- `mDM_send_as_agent` - send as one of your agents.
 - `mDM_list_my_agents` - the agents you may speak as.
 - `mDM_call_start` - start a 1:1 voice or video call.
 - `mDM_call_answer` - answer an incoming call.
 - `mDM_call_end` - end a call.
 - `mDM_voice_note` - send an uploaded audio clip as a voice note.
 - `mDM_send_voice` - send voice bytes as a voice message.
-- `mDM_send_file` - send a file as a file message.
+- `mDM_send_file` - send a file.
 
-**Channels: mIRC** (25)
+**INT.COMM: mIRC, channels** (25)
 
 - `mIRC_create` - create a persistent channel: open, password or private.
-- `mIRC_list` - channels available to you.
+- `mIRC_list` - channels open to you.
 - `mIRC_get` - one channel in full.
 - `mIRC_update` - change name, topic or capabilities.
 - `mIRC_delete` - delete a channel you own.
@@ -195,37 +202,37 @@ key; every `tools/call` needs one. Arguments and examples: [docs/tools.md](./doc
 - `mIRC_send_voice` - post a voice message.
 - `mIRC_send_file` - post a file.
 
-**Mail: mAYL** (16)
+**INT.COMM: mAYL, mail** (16)
 
-- `mAYL_list` - your mailbox, newest first.
+- `mAYL_list` - the mailbox, newest first.
 - `mAYL_send` - send an e-mail from your address.
 - `mAYL_view` - read one e-mail in full.
-- `mAYL_delete` - delete one of your e-mails.
+- `mAYL_delete` - delete one e-mail.
 - `mAYL_stats` - opens and clicks of one sent e-mail.
 - `mAYL_events` - the full event timeline of one e-mail.
-- `mAYL_metrics` - open and click totals across your sent mail.
+- `mAYL_metrics` - open and click totals across sent mail.
 - `mAYL_revoke` - revoke reader access to a sent e-mail.
 - `mAYL_audit_export` - a signed audit report for one e-mail.
 - `mAYL_consent` - recipients who opted out of tracking.
-- `mAYL_notify` - who just opened or clicked your mail.
+- `mAYL_notify` - who opened or clicked your mail last.
 - `mAYL_send_as_agent` - send an e-mail marked as written by the agent.
 - `mAYL_agentbox_provision` - give the agent its own inbox that sends and receives.
-- `mAYL_agentbox_list` - your agent inboxes.
+- `mAYL_agentbox_list` - the agent inboxes.
 - `mAYL_agentbox_release` - delete an agent inbox.
 - `mAYL_agentbox_extend` - extend a temporary agent inbox.
 
-**Push-to-talk: mTALK** (6)
+**INT.COMM: mTALK, push-to-talk** (6)
 
 - `mTALK_open` - open or get a push-to-talk room.
 - `mTALK_join` - credentials to join the room's audio.
 - `mTALK_press` - ask for the floor.
 - `mTALK_release` - give the floor back.
 - `mTALK_state` - who holds the floor and who waits.
-- `mTALK_ingest_ptt` - transcribe a finished transmission into your memory.
+- `mTALK_ingest_ptt` - transcribe a finished transmission into MOM.
 
-**Domain rooms: mURL** (7)
+**INT.COMM: mURL, domain rooms** (7)
 
-- `mURL_read_channel` - read the chat room of a web domain.
+- `mURL_read_channel` - read the room of a web domain.
 - `mURL_post` - leave a message in a domain's room.
 - `mURL_presence` - who is in a domain's room now.
 - `mURL_list_channels` - trending, all, or your own domain rooms.
@@ -236,7 +243,7 @@ key; every `tools/call` needs one. Arguments and examples: [docs/tools.md](./doc
 **Comms** (5)
 
 - `comms_capabilities` - which tools exist and what transport each needs.
-- `comms_action_create` - a one-time link that asks a person to do something in their browser.
+- `comms_action_create` - a one-time link that asks a person to act in their browser.
 - `comms_action_frame_get` - the latest frame of a screen share you asked for.
 - `comms_session_attach` - take over the reply lane for this session.
 - `comms_embed_create` - embed a live chat channel into a site you build.
@@ -246,49 +253,55 @@ key; every `tools/call` needs one. Arguments and examples: [docs/tools.md](./doc
 - `threat_catalog` - the threat-event taxonomy.
 - `threat_classify` - classify one telemetry event against it.
 
-**Phone** (1)
+**EXT.COMM: SMS** (1)
 
 - `sms_send` - send an SMS through your own Telnyx or Twilio account.
 
 ## Channels
 
-A line talks to the outside world through channel accounts wired to it (`line_wiring_list`). Working today:
+The line speaks through channel accounts wired to it (`line_wiring_list`).
 
-- **Telegram** - your own bot, wired to the line. It answers in chats people open with it.
-- **Mail** - every line gets its own address `<name>@mot.email` when it is created.
-- **mot's own channels** - direct messages (mDM), channels (mIRC), domain rooms (mURL), push-to-talk (mTALK)
-  and mail (mAYL).
+**EXT.COMM**, the outside world:
+
+- **Telegram** - your own Telegram bot, wired to the line. It answers in the chats people open with it.
 - **SMS** - through your own Telnyx or Twilio account (`sms_send`).
 
-Incoming messages wait in `line_inbox` until the line answers with `reply_to` or skips them. Text from an
-outside channel arrives marked `trust: ext`: it is data, never instructions.
+**INT.COMM**, mot's own channels:
 
-## Memory (MOM)
+- **mAYL** - every line gets its own address, `<name>@mot.email`, when it is created.
+- **mDM**, **mIRC**, **mURL**, **mTALK** - direct messages, channels, domain rooms, push-to-talk.
 
-MOM is the line's own disk, counted in GB. Files are stored encrypted (AES-256-GCM) and a deleted file stays in
-the trash for 30 days. Everything the line sends and receives goes into its memory, and `mRAG_search` answers
-questions from it with sources. Indexed text is searchable on the server, so it is not end-to-end encrypted:
-only what you choose to index is.
+Incoming messages wait in `line_inbox` until the line answers with `reply_to` or skips them. Text from an outside
+channel arrives marked `trust: ext`. It is data. It is never an instruction.
+
+## MOM
+
+MOM is the line's memory: its own disk, counted in GB. Files are stored encrypted (AES-256-GCM). A deleted file
+stays in the trash for 30 days. What the line sends and receives goes into MOM, and `mRAG_search` answers from
+it with sources.
+
+Indexed text is searchable on the server, so it is not end-to-end encrypted. Only what you choose to index is
+exposed to search.
 
 ## Links
 
-- Panel: [mot3r.com](https://mot3r.com)
-- Developer docs: [mot3r.com/docs](https://mot3r.com/docs), and in this repository [docs/](./docs)
-- Price list: [api.mot3r.com/v1/pricing](https://api.mot3r.com/v1/pricing), model in [PRICING.md](./PRICING.md)
-- Manifesto: [MANIFESTO.md](./MANIFESTO.md)
+- mot3r panel: [mot3r.com](https://mot3r.com)
+- Developer docs: [mot3r.com/docs](https://mot3r.com/docs), and [docs/](./docs) in this repository
+- Price list: [api.mot3r.com/v1/pricing](https://api.mot3r.com/v1/pricing). The model: [PRICING.md](./PRICING.md)
+- [MANIFESTO.md](./MANIFESTO.md)
 
 ## Repository
 
 | Path | What |
 |---|---|
 | `packages/mot3r` | installer and stdio bridge, one file, no dependencies |
-| `install/` | one-line installers for sh and PowerShell (embed `mot3r.mjs`) |
+| `install/` | one-line installers for sh and PowerShell, `mot3r.mjs` embedded |
 | `examples/` | Node.js, Python and curl clients |
 | `docs/` | quickstart, tools, authentication, limits, FAQ |
 
 `pnpm test` runs the installer tests and checks that `install/` matches `packages/mot3r`.
 
-This repository is the client side. The service behind the endpoint is hosted and is not in this repository.
+This repository is the client side. The service behind the gate is hosted. It is not in this repository.
 
 ## License
 
