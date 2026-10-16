@@ -1,0 +1,22 @@
+{
+  "name": "mot-os",
+  "version": "0.3.3",
+  "private": true,
+  "description": "mot client side (MIT): installer, stdio bridge, examples and docs for the mot MCP endpoint. The hosted service is not in this repository.",
+  "homepage": "https://github.com/Hei33enberg/mot-os",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hei33enberg/mot-os.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "test": "node scripts/build-installers.mjs --check && pnpm -r --if-present run test",
+    "build:installers": "node scripts/build-installers.mjs",
+    "check:examples": "node --check examples/node/index.mjs && python -m py_compile examples/python/main.py && sh -n examples/curl/call.sh"
+  }
+}
