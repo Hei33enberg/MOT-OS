@@ -14,7 +14,7 @@ if (src.split('\n').includes(SH_END)) throw new Error(`mot3r.mjs contains the he
 if (src.split('\n').some((l) => l.startsWith(PS_END))) throw new Error('mot3r.mjs has a line starting with the here-string end');
 
 export const sh = `#!/bin/sh
-# mot installer ${version} - MIT License. Writes the mot MCP entry into the MCP clients found on this machine.
+# mot installer ${version}. MIT License. Wires the mot gate into every MCP client on this machine.
 #   curl -fsSL <raw url of this file> | sh
 #   curl -fsSL <raw url of this file> | sh -s -- --dry-run --host cursor,vscode
 # Requires Node.js 18 or newer. Copies mot3r.mjs to ~/.mot (MOT_HOME) and runs \`mot3r install\`.
@@ -39,7 +39,7 @@ ${SH_END}
 node "$dir/mot3r.mjs" install "$@"
 `;
 
-export const ps1 = `# mot installer ${version} - MIT License. Writes the mot MCP entry into the MCP clients found on this machine.
+export const ps1 = `# mot installer ${version}. MIT License. Wires the mot gate into every MCP client on this machine.
 #   irm <raw url of this file> | iex
 # Requires Node.js 18 or newer. Copies mot3r.mjs to %USERPROFILE%\.mot (MOT_HOME) and runs \`mot3r install\`.
 $ErrorActionPreference = 'Stop'
