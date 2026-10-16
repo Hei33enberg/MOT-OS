@@ -2,7 +2,7 @@
   "name": "mot-os",
   "version": "0.3.3",
   "private": true,
-  "description": "mot client side (MIT): installer, stdio bridge, examples and docs for the mot MCP endpoint. The hosted service is not in this repository.",
+  "description": "The client side of mot, the gate for agents: installer, stdio bridge, examples and docs (MIT). The hosted service is not in this repository.",
   "homepage": "https://github.com/Hei33enberg/mot-os",
   "repository": {
     "type": "git",
