@@ -2,8 +2,8 @@
 
 | Page | What |
 |---|---|
-| [quickstart.md](./quickstart.md) | from sign-up to an agent answering as its line |
-| [tools.md](./tools.md) | how to call tools, arguments of the line tools |
+| [quickstart.md](./quickstart.md) | from sign-up to an agent that answers as its line |
+| [tools.md](./tools.md) | how to call a tool, arguments of the line tools |
 | [authentication.md](./authentication.md) | key kinds, headers, REST endpoints |
 | [limits.md](./limits.md) | limits and error codes |
 | [faq.md](./faq.md) | short answers |
