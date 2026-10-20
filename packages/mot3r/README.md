@@ -1,6 +1,6 @@
 # mot3r
 
-Installer and stdio bridge for the [mot](../../README.md) gate. One file, `mot3r.mjs`. No dependencies.
+Installer and stdio bridge for the [mot](../../README.md) gateway. One file, `mot3r.mjs`. No dependencies.
 Node.js 18 or newer. MIT.
 
 ```bash
@@ -10,6 +10,8 @@ node mot3r.mjs mcp                # stdio <-> https://mcp.mot3r.com/mcp
 node mot3r.mjs doctor             # endpoint, tool count, key format (the key is never printed)
 node mot3r.mjs hosts              # supported clients
 ```
+
+After the one-line installer the file lives at `~/.mot/mot3r.mjs` (`%USERPROFILE%\.mot\mot3r.mjs` on Windows).
 
 ## What `install` writes
 
@@ -40,13 +42,13 @@ another https address. Without a key it still lists tools. Every `tools/call` th
 
 ## npm
 
-The package name is `mot3r`. The version is 0.3.3. It is not published to npm. Run it from a clone or through
-`install/install.sh` / `install/install.ps1`, which embed this file byte for byte.
+mot3r 0.3.3 is not published to npm. Run it from a clone, or through `install/install.sh` or
+`install/install.ps1`, which embed this file byte for byte.
 
 ## Tests
 
 ```bash
-node --test "test/*.test.mjs"
+node --test test/mot3r.test.mjs
 ```
 
 No network. Every HTTP call in the tests goes to a fake `fetch`.

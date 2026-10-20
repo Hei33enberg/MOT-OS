@@ -1,6 +1,6 @@
-# mot installer 0.3.3. MIT License. Wires the mot gate into every MCP client on this machine.
+# mot installer 0.3.3. MIT License. Wires the mot gateway into every MCP client on this machine.
 #   irm <raw url of this file> | iex
-# Requires Node.js 18 or newer. Copies mot3r.mjs to %USERPROFILE%.mot (MOT_HOME) and runs `mot3r install`.
+# Requires Node.js 18 or newer. Copies mot3r.mjs to %USERPROFILE%\.mot (MOT_HOME) and runs `mot3r install`.
 $ErrorActionPreference = 'Stop'
 
 $node = Get-Command node -ErrorAction SilentlyContinue
@@ -18,7 +18,7 @@ $src = @'
 //   mot3r install [--host a,b] [--url URL] [--dry-run]   write the mot entry into your MCP clients
 //   mot3r print <host>                                   print one client's config, write nothing
 //   mot3r mcp                                            stdio <-> Streamable HTTP bridge (clients that only run local servers)
-//   mot3r doctor                                         check the endpoint and your MOT_KEY (the key is never printed)
+//   mot3r doctor                                         check the endpoint, the tool count and the MOT_KEY format (never prints the key)
 //   mot3r hosts                                          list supported clients
 //
 // The key lives in the MOT_KEY environment variable. Clients that can read a variable get a reference to it,
@@ -38,7 +38,7 @@ export const VERSION = '0.3.3';
 export const DEFAULT_URL = 'https://mcp.mot3r.com/mcp';
 export const KEY_ENV = 'MOT_KEY';
 export const SERVER_NAME = 'mot';
-export const KEY_PAGE = 'https://mot3r.com';
+export const KEY_PAGE = 'https://mot3r.com/panel/';
 export const KEY_HIDDEN = '<value of MOT_KEY, hidden>';
 export const VSCODE_INPUT = Object.freeze({ type: 'promptString', id: 'mot-key', description: 'mot key (mot_...)', password: true });
 const UTF8_BOM = new RegExp('^' + String.fromCharCode(0xfeff));
@@ -300,7 +300,7 @@ export async function runShim({
   const target = resolveUrl(url);
   const state = { session: null, protocol: null };
   const write = (s) => output.write(s.endsWith('\n') ? s : s + '\n');
-  if (!key) errors.write(`mot3r: ${KEY_ENV} is not set - tools/list works without a key, every tools/call returns 401. Get a key at ${KEY_PAGE}.\n`);
+  if (!key) errors.write(`mot3r: ${KEY_ENV} is not set - tools/list works without a key, every tools/call returns 401. Get a key in the mot3r panel: ${KEY_PAGE}\n`);
 
   async function forward(line) {
     let msg;
@@ -416,12 +416,13 @@ export function parseArgs(argv) {
 const HELP = `mot3r ${VERSION} - put mot into your MCP client.
 
   mot3r install [--host ${Object.keys(HOSTS).join(',')}] [--url URL] [--dry-run]
+                        write the mot entry into your MCP clients
   mot3r print <client>  show one client's config, write nothing
   mot3r mcp             stdio bridge to ${DEFAULT_URL} (reads ${KEY_ENV}, MOT_MCP_URL overrides the address)
-  mot3r doctor          check the endpoint and your key (never prints the key)
+  mot3r doctor          check the endpoint, the tool count and the key format (never prints the key)
   mot3r hosts           list supported clients
 
-Key: ${KEY_PAGE} -> put it in ${KEY_ENV}. MIT License.`;
+Get a key in the mot3r panel (${KEY_PAGE}) and put it in ${KEY_ENV}. MIT License.`;
 
 export async function main(argv = process.argv.slice(2), log = console.log) {
   const a = parseArgs(argv);
@@ -437,7 +438,7 @@ export async function main(argv = process.argv.slice(2), log = console.log) {
     return;
   }
   if (cmd === 'install') {
-    if (!process.env[KEY_ENV]) log(`note: ${KEY_ENV} is not set. Clients will reference it; set it before you start them (key: ${KEY_PAGE}).`);
+    if (!process.env[KEY_ENV]) log(`note: ${KEY_ENV} is not set. Clients read the key from this variable, so set it before you start them. Get a key in the mot3r panel: ${KEY_PAGE}`);
     const rows = install({ hosts: a.hosts, url: a.url, dryRun: a.dryRun });
     if (!rows.length) log(`No supported client found. Pick one: --host ${Object.keys(HOSTS).join(',')}`);
     for (const r of rows) {
