@@ -6,10 +6,11 @@ Do not open a public issue. Report privately through GitHub:
 [Report a vulnerability](https://github.com/Hei33enberg/mot-os/security/advisories/new).
 
 Include what you found, how to reproduce it, which version or endpoint is affected, and whether you plan to
-publish a write-up. Never include a working key: if a key leaked, say where, and revoke it in the panel.
+publish a write-up. Never include a working key. If a key of yours leaked, say where, and revoke it in the panel.
+If you found someone else's key, tell us where, and do not use it.
 
-We confirm receipt when we read the report. Fixes go by severity. There are no fixed deadlines. Reporters are
-credited in the advisory unless they ask not to be. There is no paid bounty.
+We acknowledge every report. Fixes go by severity, and we do not promise fixed deadlines. Reporters are credited
+in the advisory unless they ask not to be. There is no paid bounty.
 
 ## Scope
 
@@ -17,7 +18,7 @@ In scope:
 
 - this repository (`packages/mot3r`, `install/`, `examples/`)
 - the hosts `mcp.mot3r.com`, `api.mot3r.com` and `mot3r.com`
-- line mail (mAYL) at `mot.email`
+- line mail at `mot.email`
 
 Out of scope: services we do not run, social engineering, physical attacks, denial of service, and findings
 already published without coordination.

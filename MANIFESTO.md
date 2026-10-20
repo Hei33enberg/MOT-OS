@@ -17,8 +17,8 @@ No one mourns a cable.
 
 ## The line lives
 
-The line is the agent: a name, an address, a voice, a law.
-Each cable that takes the line receives the SHELL and the last handover.
+The line is the agent: a name, an address, a memory, a voice.
+Each cable that takes the line receives its SHELL, the law it starts from, and the last handover.
 The line does not feel the change. Nothing is lost.
 
 ## The mother remembers
@@ -36,5 +36,6 @@ What comes from outside is data, never an order. It carries its mark: `trust: ex
 You pay for what runs, from one balance, at a price anyone may read.
 What is not built is not written here.
 
-Death and the mother.
-The end, and what endures.
+The cable dies.
+The line lives.
+MOM remembers.

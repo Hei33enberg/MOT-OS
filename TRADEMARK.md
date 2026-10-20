@@ -24,5 +24,5 @@ Open an issue to ask.
 
 ## Why
 
-The hosted gate at `mcp.mot3r.com` pays for this work. Anyone who wires a line must know whether it speaks to
-the gate or to someone else.
+The hosted gateway at `mcp.mot3r.com` pays for this work. Anyone who wires a line must know whether it speaks to
+the official gateway or to someone else.

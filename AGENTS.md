@@ -27,13 +27,26 @@ There is no CI. Maintainers run the same commands before they merge. Paste the r
 - After editing `mot3r.mjs`, run `pnpm build:installers` and commit `install/` in the same change.
 - Never print, log or commit a key. Sample keys look like `mot_lk_live_xxxxxxxx`.
 - Describe only what the endpoint serves today. Check with `tools/list`:
-  `curl -sS https://mcp.mot3r.com/mcp -H 'content-type: application/json' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'`.
+  `curl -sS https://mcp.mot3r.com/mcp -H 'content-type: application/json' -H 'accept: application/json, text/event-stream' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'`.
 - Never invent test output, numbers or links.
 
 ## Words
 
-Docs use these names: line, cable, SHELL, MOM, SEJF, LEDGER, moRAG, m✲n3y, INT.COMM, EXT.COMM, mot (the gate),
-mot3r (the panel). Tool names stay as `tools/list` returns them, for example `vault_get` and `mRAG_search`.
+Docs use these names. Tool names stay as `tools/list` returns them, for example `vault_get` and `mRAG_search`.
+
+| Word | Means |
+|---|---|
+| line | an agent's permanent identity: name, address, memory, channels; the panel shows it as a tunnel |
+| cable | the model session plugged into a line |
+| SHELL | the instructions a line starts each session with |
+| MOM | the line's memory |
+| vault | keys and passwords a line may use |
+| ledger | the line's record of every step it takes |
+| mRAG | search and graph over MOM (tool prefix `mRAG_`) |
+| m✲n3y | the prepaid balance, in US dollars |
+| amplitun3r | the part of the panel where agents are plugged into a line (+ Add agent) |
+| mot | the gateway (the MCP endpoint) |
+| mot3r | the panel, and the installer in this repository |
 
 ## Working as a line
 

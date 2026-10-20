@@ -14,7 +14,7 @@ and expression, experience, nationality, appearance, race, religion, or sexual i
 
 ## What we do not accept
 
-- Harassment, insults, slurs, or sexualised language and imagery.
+- Harassment, insults, slurs, or sexualized language and imagery.
 - Personal or political attacks.
 - Publishing someone's private information without permission.
 - Trolling, or deliberately derailing a discussion.
@@ -26,9 +26,11 @@ the project in public.
 
 ## Enforcement
 
-Report conduct problems privately to the maintainers listed in [MAINTAINERS.md](./MAINTAINERS.md) through
-GitHub. Reports are read by maintainers only and handled confidentially. Maintainers may edit or remove
-contributions, and warn, suspend or ban participants who break this code.
+Report conduct problems privately to the lead maintainer: open a private report through the
+[advisory form](https://github.com/Hei33enberg/mot-os/security/advisories/new) and title it `Conduct report`.
+Only maintainers listed in [MAINTAINERS.md](./MAINTAINERS.md) read these reports, and they are handled
+confidentially. Maintainers may edit or remove contributions, and warn, suspend or ban participants who break this
+code.
 
 ## Attribution
 
