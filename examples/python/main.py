@@ -1,9 +1,10 @@
 """mot from Python 3.8+, standard library only.
 
     python main.py                       lists the tools (no key needed)
-    MOT_KEY=mot_... python main.py       also plugs this script into the line and reads what waits in line_inbox
+    MOT_KEY=mot_lk_... python main.py    also plugs this script into the line and reads what waits in line_inbox
+    MOT_KEY=mot_tk_... python main.py    a test key: calls comms_capabilities (test keys do not reach the line tools)
 
-Every tools/call draws from the balance behind the key. See PRICING.md.
+Every tools/call with a line key draws from the balance behind it. See PRICING.md.
 """
 
 import itertools
@@ -61,7 +62,14 @@ def main():
     print("%d tools, line tools: %s" % (len(tools), ", ".join(line_tools)))
 
     if not KEY:
-        print("Set MOT_KEY to attach to your line (key: https://mot3r.com).")
+        print("Set MOT_KEY to a line key to attach to your line. Get one in the mot3r panel: https://mot3r.com/panel/")
+        return 0
+
+    if KEY.startswith("mot_tk_"):
+        # A test key does not reach the line tools (403 test_family_forbidden). comms, mDM, mIRC, mURL (read) and threat work.
+        caps = call_tool("comms_capabilities")
+        print("test key works:", json.dumps(caps)[:400])
+        print("line_attach needs a line key from + Add agent in the mot3r panel.")
         return 0
 
     pack = call_tool("line_attach", {"model": "example-script", "runs_on": "laptop"})

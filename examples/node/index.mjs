@@ -1,7 +1,8 @@
 // mot from plain Node.js (18+), no dependencies.
 //   node index.mjs                      lists the tools (no key needed)
-//   MOT_KEY=mot_... node index.mjs      also plugs this script into the line and reads what waits in line_inbox
-// Every tools/call draws from the balance behind the key. See PRICING.md.
+//   MOT_KEY=mot_lk_... node index.mjs   also plugs this script into the line and reads what waits in line_inbox
+//   MOT_KEY=mot_tk_... node index.mjs   a test key: calls comms_capabilities (test keys do not reach the line tools)
+// Every tools/call with a line key draws from the balance behind it. See PRICING.md.
 
 const URL = process.env.MOT_MCP_URL || 'https://mcp.mot3r.com/mcp';
 const KEY = process.env.MOT_KEY || '';
@@ -45,7 +46,15 @@ const { tools } = await rpc('tools/list');
 console.log(`${tools.length} tools, line tools: ${tools.filter((t) => t.name.startsWith('line_')).map((t) => t.name).join(', ')}`);
 
 if (!KEY) {
-  console.log('Set MOT_KEY to attach to your line (key: https://mot3r.com).');
+  console.log('Set MOT_KEY to a line key to attach to your line. Get one in the mot3r panel: https://mot3r.com/panel/');
+  process.exit(0);
+}
+
+if (KEY.startsWith('mot_tk_')) {
+  // A test key does not reach the line tools (403 test_family_forbidden). comms, mDM, mIRC, mURL (read) and threat work.
+  const caps = await callTool('comms_capabilities');
+  console.log('test key works:', JSON.stringify(caps).slice(0, 400));
+  console.log('line_attach needs a line key from + Add agent in the mot3r panel.');
   process.exit(0);
 }
 

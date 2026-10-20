@@ -4,10 +4,10 @@ One JSON-RPC request per `curl`. The endpoint is stateless. No session id travel
 
 ```bash
 sh call.sh                                       # initialize + tool names
-MOT_KEY="mot_lk_live_xxxxxxxx" sh call.sh        # also line_attach
+MOT_KEY="mot_lk_live_xxxxxxxx" sh call.sh        # also line_attach (a test key calls comms_capabilities)
 ```
 
-The same call by hand:
+The same call by hand, with a line key:
 
 ```bash
 curl -sS https://mcp.mot3r.com/mcp \
