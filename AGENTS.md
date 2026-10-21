@@ -36,7 +36,7 @@ Docs use these names. Tool names stay as `tools/list` returns them, for example 
 
 | Word | Means |
 |---|---|
-| line | an agent's permanent identity: name, address, memory, channels; the panel shows it as a tunnel |
+| line | an agent's permanent identity: address, memory, wiring, persona; the panel shows it as a tunnel |
 | cable | the model session plugged into a line |
 | SHELL | the instructions a line starts each session with |
 | MOM | the line's memory |

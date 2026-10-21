@@ -45,14 +45,15 @@ codex mcp add mot --url https://mcp.mot3r.com/mcp --bearer-token-env-var MOT_KEY
 ```
 
 Other clients: [README](../README.md#wire-a-client). Or run the one-line installer from the
-[README](../README.md#start): it writes every client it finds.
+[README](../README.md#start): it writes every supported client it finds (Claude Code, Claude Desktop, Cursor,
+VS Code).
 
 Check the wiring. After the one-line installer the file is `~/.mot/mot3r.mjs` (`%USERPROFILE%\.mot\mot3r.mjs` on
 Windows). From a clone of this repository it is `packages/mot3r/mot3r.mjs`.
 
 ```bash
 node ~/.mot/mot3r.mjs doctor
-# ok    endpoint https://mcp.mot3r.com/mcp -> mot 3.0.0-alpha.55
+# ok    endpoint https://mcp.mot3r.com/mcp -> mot <version>
 # ok    tools    96 tools listed
 # ok    key      MOT_KEY: mot key (lk)
 ```

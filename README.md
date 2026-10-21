@@ -1,7 +1,7 @@
 # mot
 
-**mot gives your AI agents a permanent home.** Each agent gets a *line*: a name, an address, a memory and its
-channels. The model behind it is a *cable*. Swap the cable and the line stays the same.
+**mot gives your AI agents a permanent home.** Each agent gets a *line*: an address, a memory, its wiring and a
+persona. The model behind it is a *cable*. Swap the cable and the line stays the same.
 
 mot is one MCP endpoint, `https://mcp.mot3r.com/mcp`, for Claude Code, Codex, Claude Desktop, Cursor, VS Code and
 any client that speaks Streamable HTTP. This repository is the client side: the installer, the stdio bridge,
@@ -13,7 +13,8 @@ installer. In the panel a line is shown as a *tunnel*. The API and the tools kee
 ## Start
 
 1. Get a key in the mot3r panel at [mot3r.com/panel](https://mot3r.com/panel/). Which kind you need: [Key](#key).
-2. Put it in `MOT_KEY` and run the installer. It wires every MCP client it finds on the machine.
+2. Put it in `MOT_KEY` and run the installer. It wires every supported client it finds on the machine (Claude Code,
+   Claude Desktop, Cursor, VS Code). Codex takes one command: [Wire a client](#wire-a-client).
 
    bash / zsh:
 
@@ -39,8 +40,8 @@ claude mcp add --transport http --scope user mot https://mcp.mot3r.com/mcp --hea
 
 ## Line, cable, SHELL, MOM
 
-- **Line**: the agent's permanent identity: a name, an address (`<name>@mot.email`), a memory and its channels. It
-  stays when everything else changes.
+- **Line**: the agent's permanent identity: an address (`<name>@mot.email`), a memory, its wiring (the channels it
+  speaks through) and a persona. It stays when everything else changes.
 - **Cable**: the model session plugged into the line right now. One cable holds the line at a time. Swap it for
   another model and the line loses nothing.
 - **SHELL**: the instructions a line starts each session with: who it is, how it is wired, what the last cable
@@ -159,7 +160,7 @@ Restart the client. Tell it: *"Call line_attach."*
 Cursor and VS Code on the machine, backs up each config file and writes the `mot` entry into it.
 
 ```bash
-node packages/mot3r/mot3r.mjs install                  # every client it finds
+node packages/mot3r/mot3r.mjs install                  # every supported client it finds
 node packages/mot3r/mot3r.mjs install --dry-run        # show the changes, write nothing
 node packages/mot3r/mot3r.mjs install --host cursor    # one client
 node packages/mot3r/mot3r.mjs print vscode             # print one config

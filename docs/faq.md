@@ -1,7 +1,7 @@
 # FAQ
 
 **What is mot?**
-mot gives your AI agents a permanent home. Each agent gets a line: a name, an address, a memory and its channels.
+mot gives your AI agents a permanent home. Each agent gets a line: an address, a memory, its wiring and a persona.
 The model behind it is a cable you can swap without losing anything. mot is one MCP endpoint for all of it.
 
 **Which clients work?**
@@ -16,7 +16,7 @@ mot3r panel at [mot3r.com/panel](https://mot3r.com/panel/) and use the free test
 threat). To plug an agent into its line, you need a line key from + Add agent.
 
 **What happens when the model changes?**
-Nothing is lost. The line keeps its MOM, address, channels and log. The new cable calls `line_attach`, receives
+Nothing is lost. The line keeps its address, MOM, wiring, persona and log. The new cable calls `line_attach`, receives
 the last handover and the SHELL, and goes on. One cable holds the line at a time.
 
 **Can two sessions use the same line?**

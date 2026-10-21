@@ -17,7 +17,7 @@ No one mourns a cable.
 
 ## The line lives
 
-The line is the agent: a name, an address, a memory, a voice.
+The line is the agent: an address, a memory, its wiring, a persona.
 Each cable that takes the line receives its SHELL, the law it starts from, and the last handover.
 The line does not feel the change. Nothing is lost.
 
