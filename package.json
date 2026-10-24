@@ -1,6 +1,6 @@
 {
   "name": "mot-os",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "private": true,
   "description": "mot — lines for agents. Installer, stdio bridge, examples and docs for the mot MCP gateway (MIT). The hosted service is not in this repository.",
   "homepage": "https://github.com/Hei33enberg/mot-os",

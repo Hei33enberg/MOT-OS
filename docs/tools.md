@@ -1,7 +1,7 @@
 # Tools
 
 This page shows how to call a tool, lists the arguments of the line and vault tools, and gives every tool in one
-line. For the full input schema of any tool, read `tools/list`: it needs no key. mot serves 96 tools at 0.3.3. A
+line. For the full input schema of any tool, read `tools/list`: it needs no key. mot serves 96 tools at 0.3.4. A
 summary by family, with what a test key reaches, is in the [README](../README.md#tools).
 
 ```bash

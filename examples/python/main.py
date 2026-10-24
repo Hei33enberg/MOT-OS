@@ -53,7 +53,7 @@ def main():
     init = rpc("initialize", {
         "protocolVersion": "2025-06-18",
         "capabilities": {},
-        "clientInfo": {"name": "mot-example-python", "version": "0.3.3"},
+        "clientInfo": {"name": "mot-example-python", "version": "0.3.4"},
     })
     print("connected: %s %s" % (init["serverInfo"]["name"], init["serverInfo"]["version"]))
 

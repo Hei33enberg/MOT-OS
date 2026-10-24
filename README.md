@@ -173,12 +173,12 @@ These paths are for a clone of this repository. After the one-line installer the
 
 `doctor` checks the shape of the key, not the key itself: it never sends it, so a revoked key still shows `ok`.
 
-mot3r 0.3.3 is not published to npm. Run it from a clone or with the one-line installer. Details:
+mot3r 0.3.4 is on npm: `npx mot3r install` does the same as the one-line installer, with `MOT_KEY` set. Details:
 [packages/mot3r](./packages/mot3r).
 
 ## Tools
 
-mot serves 96 tools at release 0.3.3. `tools/list` returns the live list. `initialize` and `tools/list` answer
+mot serves 96 tools at release 0.3.4. `tools/list` returns the live list. `initialize` and `tools/list` answer
 without a key; every `tools/call` needs one. Every tool in one line, and the arguments of the line tools:
 [docs/tools.md](./docs/tools.md).
 

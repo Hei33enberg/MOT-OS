@@ -47,8 +47,8 @@ function fakeResponse(status, body, type = 'application/json', headers = {}) {
   return { status, headers: { get: (k) => h.get(k.toLowerCase()) ?? null }, text: async () => body };
 }
 
-test('version is 0.3.3 and the default endpoint is the mot MCP URL', () => {
-  assert.equal(VERSION, '0.3.3');
+test('version is 0.3.4 and the default endpoint is the mot MCP URL', () => {
+  assert.equal(VERSION, '0.3.4');
   assert.equal(DEFAULT_URL, 'https://mcp.mot3r.com/mcp');
 });
 

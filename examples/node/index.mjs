@@ -38,7 +38,7 @@ async function callTool(name, args = {}) {
 const init = await rpc('initialize', {
   protocolVersion: '2025-06-18',
   capabilities: {},
-  clientInfo: { name: 'mot-example-node', version: '0.3.3' },
+  clientInfo: { name: 'mot-example-node', version: '0.3.4' },
 });
 console.log(`connected: ${init.serverInfo.name} ${init.serverInfo.version}`);
 

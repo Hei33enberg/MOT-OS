@@ -20,7 +20,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 
-export const VERSION = '0.3.3';
+export const VERSION = '0.3.4';
 export const DEFAULT_URL = 'https://mcp.mot3r.com/mcp';
 export const KEY_ENV = 'MOT_KEY';
 export const SERVER_NAME = 'mot';

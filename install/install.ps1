@@ -1,4 +1,4 @@
-# mot installer 0.3.3. MIT License. Wires the mot gateway into Claude Code, Claude Desktop, Cursor and VS Code.
+# mot installer 0.3.4. MIT License. Wires the mot gateway into Claude Code, Claude Desktop, Cursor and VS Code.
 #   irm <raw url of this file> | iex
 # Requires Node.js 18 or newer. Copies mot3r.mjs to %USERPROFILE%\.mot (MOT_HOME) and runs `mot3r install`.
 $ErrorActionPreference = 'Stop'
@@ -34,7 +34,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { createInterface } from 'node:readline';
 
-export const VERSION = '0.3.3';
+export const VERSION = '0.3.4';
 export const DEFAULT_URL = 'https://mcp.mot3r.com/mcp';
 export const KEY_ENV = 'MOT_KEY';
 export const SERVER_NAME = 'mot';

@@ -1,6 +1,6 @@
 {
   "name": "mot3r",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Installer and stdio bridge for the mot gateway. Wires the mot MCP endpoint into Claude Code, Claude Desktop, Cursor and VS Code. No dependencies.",
   "license": "MIT",
   "type": "module",

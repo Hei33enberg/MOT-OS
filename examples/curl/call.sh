@@ -19,7 +19,7 @@ rpc() {
 }
 
 echo '--- initialize'
-rpc '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"mot-example-curl","version":"0.3.3"}}}'
+rpc '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"mot-example-curl","version":"0.3.4"}}}'
 
 echo '--- tools/list (names only)'
 rpc '{"jsonrpc":"2.0","id":2,"method":"tools/list"}' | grep -o '"name":"[A-Za-z_]*"' | cut -d'"' -f4

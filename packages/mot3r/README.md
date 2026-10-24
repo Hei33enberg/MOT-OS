@@ -1,17 +1,25 @@
 # mot3r
 
-Installer and stdio bridge for the [mot](../../README.md) gateway. One file, `mot3r.mjs`. No dependencies.
-Node.js 18 or newer. MIT.
+Installer and stdio bridge for the [mot](https://github.com/Hei33enberg/mot-os#readme) gateway. One file,
+`mot3r.mjs`. No dependencies. Node.js 18 or newer. MIT.
 
 ```bash
-node mot3r.mjs install [--host claude-code,claude-desktop,cursor,vscode] [--url URL] [--dry-run]
-node mot3r.mjs print <client>     # one client's config, nothing written
-node mot3r.mjs mcp                # stdio <-> https://mcp.mot3r.com/mcp
-node mot3r.mjs doctor             # endpoint, tool count, key format (the key is never printed)
-node mot3r.mjs hosts              # supported clients
+export MOT_KEY="mot_lk_live_xxxxxxxx"      # a key from https://mot3r.com/panel/
+npx mot3r install                          # wires every supported client it finds
 ```
 
-After the one-line installer the file lives at `~/.mot/mot3r.mjs` (`%USERPROFILE%\.mot\mot3r.mjs` on Windows).
+Commands (`npx mot3r <command>`, or `node mot3r.mjs <command>` from a clone):
+
+```bash
+mot3r install [--host claude-code,claude-desktop,cursor,vscode] [--url URL] [--dry-run]
+mot3r print <client>     # one client's config, nothing written
+mot3r mcp                # stdio <-> https://mcp.mot3r.com/mcp
+mot3r doctor             # endpoint, tool count, key format (the key is never printed)
+mot3r hosts              # supported clients
+```
+
+`install` copies the file to `~/.mot/mot3r.mjs` (`%USERPROFILE%\.mot\mot3r.mjs` on Windows). Claude Desktop starts
+the bridge from there, so it keeps working after the npx cache is cleaned.
 
 ## What `install` writes
 
@@ -42,8 +50,8 @@ another https address. Without a key it still lists tools. Every `tools/call` th
 
 ## npm
 
-mot3r 0.3.3 is not published to npm. Run it from a clone, or through `install/install.sh` or
-`install/install.ps1`, which embed this file byte for byte.
+`npx mot3r@0.3.4 install` runs this exact version. `npm install --global mot3r` puts a `mot3r` command on the
+PATH. Without npm, `install/install.sh` and `install/install.ps1` in the repository embed this file byte for byte.
 
 ## Tests
 
