@@ -3,12 +3,22 @@
 Installer and stdio bridge for the [mot](https://github.com/Hei33enberg/mot-os#readme) gateway. One file,
 `mot3r.mjs`. No dependencies. Node.js 18 or newer. MIT.
 
+## Version
+
+| What | Version |
+|---|---|
+| This npm package (`mot3r`) | **0.3.4** |
+| Hosted product (panel / `mcp.mot3r.com`) | **mot3r 0.3.9** |
+
+`npx mot3r` installs this client. It does **not** install product 0.3.9. Pin the client with
+`npx mot3r@0.3.4` when you need this exact file.
+
 ```bash
 export MOT_KEY="mot_lk_live_xxxxxxxx"      # a key from https://mot3r.com/panel/
-npx mot3r install                          # wires every supported client it finds
+npx mot3r@0.3.4 install                    # wires every supported client it finds
 ```
 
-Commands (`npx mot3r <command>`, or `node mot3r.mjs <command>` from a clone):
+Commands (`npx mot3r@0.3.4 <command>`, or `node mot3r.mjs <command>` from a clone):
 
 ```bash
 mot3r install [--host claude-code,claude-desktop,cursor,vscode] [--url URL] [--dry-run]

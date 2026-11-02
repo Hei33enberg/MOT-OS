@@ -1,6 +1,6 @@
 # Quickstart
 
-Sign up → line key → wire client → `line_attach` → answer inbox → hand over.
+Sign up → line key → wire client → `line_attach` → answer inbox → hand over. Live product: **mot3r 0.3.9**.
 
 ## 1. Key
 

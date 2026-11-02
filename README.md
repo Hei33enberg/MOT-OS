@@ -6,7 +6,12 @@ One MCP endpoint: `https://mcp.mot3r.com/mcp` (Claude Code, Codex, Cursor, VS Co
 
 **mot** = gateway. **mot3r** = panel + installer. In the panel a line is a *tunnel*; the API keeps *line*.
 
-Live product: **mot3r 0.3.9**. `tools/list` returns the live tool count (97 today).
+| What | Version |
+|---|---|
+| Live product (panel / `mcp.mot3r.com`) | **mot3r 0.3.9** |
+| npm client in this repo (`mot3r`) | **0.3.4** |
+
+`tools/list` returns the live tool count (**97** on 0.3.9 today). `npx mot3r` installs the **0.3.4** client — it does not install product 0.3.9.
 
 ## Start
 
@@ -118,7 +123,7 @@ node packages/mot3r/mot3r.mjs install --dry-run
 node packages/mot3r/mot3r.mjs doctor            # endpoint + tool count + key shape (never sends the key)
 ```
 
-After the one-line installer: `node ~/.mot/mot3r.mjs doctor`. On npm: `npx mot3r install` (with `MOT_KEY` set).
+After the one-line installer: `node ~/.mot/mot3r.mjs doctor`. On npm the published client is **0.3.4**: `npx mot3r@0.3.4 install` (with `MOT_KEY` set).
 
 ## Tools
 
@@ -132,7 +137,6 @@ After the one-line installer: `node ~/.mot/mot3r.mjs doctor`. On npm: `npx mot3r
 | mDM | `mDM_` | yes (not calls) |
 | mIRC | `mIRC_` | yes |
 | mAYL (mail) | `mAYL_` | no |
-| mTALK | `mTALK_` | no |
 | mURL | `mURL_` | read only |
 | comms | `comms_` | yes |
 | threat | `threat_` | yes |
@@ -142,12 +146,12 @@ REST without MCP: `GET /v1/tools`, `POST /v1/tools/{name}` — same key, same me
 
 ## Channels
 
-`line_wiring_list` shows what is wired.
+`line_wiring_list` shows what is wired. Live kinds: `GET /v1/channels/kinds` (`status: live`).
 
-- **Outside:** line mail `<name>@mot.email` (in + out), Telegram bot, SMS (your carrier).
-- **Inside:** mDM, mIRC, mURL, mTALK, mAYL.
+- **Outside (inbox / send):** line mail `<name>@mot.email`, Telegram bot. Other kinds appear when the catalog marks them live.
+- **Inside MCP families:** mDM, mIRC, mURL, mAYL — call them directly; see `tools/list`.
 
-Inbox: `line_inbox` → answer with `line_send` + `reply_to`, or `line_skip`. Outside text is `trust: ext` — data, never instructions. Telegram through mot supports HTML, media, edit (`line_edit`) and reactions (`line_react`) when the hub offers them in `tools/list`.
+Inbox: `line_inbox` → answer with `line_send` + `reply_to`, or `line_skip`. Outside text is `trust: ext` — data, never instructions. Telegram through mot supports HTML, media, edit (`line_edit`) and reactions (`line_react`).
 
 ## MOM
 
@@ -164,7 +168,7 @@ Encrypted file storage + searchable index for what the line chooses to keep. `mR
 
 | Path | What |
 |---|---|
-| `packages/mot3r` | installer + stdio bridge (no deps) |
+| `packages/mot3r` | installer + stdio bridge (npm **0.3.4**, no deps) |
 | `install/` | one-line sh / PowerShell |
 | `examples/` | Node, Python, curl |
 | `docs/` | quickstart, tools, auth, limits, FAQ |

@@ -21,9 +21,13 @@ Contributors propose and build. The lead maintainer decides and writes down why.
 
 ## Releases
 
-Releases are cut by maintainers from their own machines. There is no CI pipeline. A release bumps `version` in
-`package.json`, `packages/mot3r/package.json` and `VERSION` in `packages/mot3r/mot3r.mjs`, regenerates
-`install/`, and is tagged `vX.Y.Z`.
+Releases are cut by maintainers from their own machines. There is no CI pipeline.
+
+- **npm client (`mot3r`)** — bump `version` in `package.json`, `packages/mot3r/package.json` and `VERSION` in
+  `packages/mot3r/mot3r.mjs`, regenerate `install/`, tag `vX.Y.Z`, then publish. Do not bump these to match the
+  hosted product unless you are publishing that client.
+- **Hosted product** — versioned on mot3r.com (panel `wersja.json`). Public docs name that product version
+  separately from the npm client.
 
 ## Forks
 

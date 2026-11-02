@@ -1,6 +1,6 @@
 # Pricing
 
-Prepaid balance (m✲n3y) in USD. No subscription. No seats.
+Prepaid balance (m✲n3y) in USD. No subscription. No seats. Live list: [api.mot3r.com/v1/pricing](https://api.mot3r.com/v1/pricing).
 
 ## How it works
 

@@ -28,7 +28,7 @@ No CI — paste real command output in the PR.
 - Never print, log, or commit a real key. Samples: `mot_lk_live_xxxxxxxx`.
 - Docs match the live endpoint. Check:  
   `curl -sS https://mcp.mot3r.com/mcp -H 'content-type: application/json' -H 'accept: application/json, text/event-stream' -d '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'`
-- Product version on mot3r.com is the source of truth (panel `wersja.json`). Do not bump the npm `mot3r` package unless you mean to publish.
+- **Product vs client:** live product = panel `wersja.json` / mot3r.com (**0.3.9**). Root `package.json` and `packages/mot3r` stay at the published npm client (**0.3.4**) until you mean to publish. Docs must not claim `npx mot3r` installs the product version. Channel claims follow `GET /v1/channels/kinds` (`status: live`) and `tools/list` — do not invent families.
 - Public text: English only. No Polish. No mosADD / 3T3R / m0s brand leakage.
 
 ## Words

@@ -6,7 +6,7 @@ Permanent home for AI agents: line (identity) + cable (model) + MOM (memory) + c
 **Which clients?**  
 Any Streamable HTTP MCP client with `Authorization`. Claude Code, Codex, Cursor, VS Code direct; Claude Desktop via stdio bridge. REST: `POST /v1/tools/{name}`.
 
-**Key to look?**  
+**Need a key to list tools?**  
 No for `initialize` / `tools/list` / `GET /v1/tools`. Test key for a free try. Line key from + Add agent to attach.
 
 **Model change?**  

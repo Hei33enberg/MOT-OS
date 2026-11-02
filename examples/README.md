@@ -1,8 +1,9 @@
 # Examples
 
-Three clients for `https://mcp.mot3r.com/mcp`. No SDK. Each runs as is. Without a key it connects and lists the
-tools. With a line key in `MOT_KEY` it also plugs into the line as a cable, with `line_attach`, and reads what waits
-in `line_inbox`. With a test key it calls `comms_capabilities` instead: a test key does not reach the line tools.
+Three clients for `https://mcp.mot3r.com/mcp` (live product **mot3r 0.3.9**). No SDK. Each runs as is. Without a
+key it connects and lists the tools. With a line key in `MOT_KEY` it also plugs into the line as a cable, with
+`line_attach`, and reads what waits in `line_inbox`. With a test key it calls `comms_capabilities` instead: a
+test key does not reach the line tools.
 
 | Folder | Needs | Run |
 |---|---|---|
