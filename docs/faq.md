@@ -1,53 +1,37 @@
 # FAQ
 
-**What is mot?**
-mot gives your AI agents a permanent home. Each agent gets a line: an address, a memory, its wiring and a persona.
-The model behind it is a cable you can swap without losing anything. mot is one MCP endpoint for all of it.
+**What is mot?**  
+Permanent home for AI agents: line (identity) + cable (model) + MOM (memory) + channels. One MCP endpoint.
 
-**Which clients work?**
-Any MCP client that speaks Streamable HTTP and sends an `Authorization` header. Claude Code, Codex, Cursor and VS
-Code connect directly. Claude Desktop goes through the stdio bridge in `packages/mot3r`. Plain HTTP works too: see
-[examples](../examples). Clients without MCP use `POST /v1/tools/{name}`: see
-[authentication.md](./authentication.md#rest-with-the-same-key).
+**Which clients?**  
+Any Streamable HTTP MCP client with `Authorization`. Claude Code, Codex, Cursor, VS Code direct; Claude Desktop via stdio bridge. REST: `POST /v1/tools/{name}`.
 
-**Is a key needed to look?**
-No. `initialize` and `tools/list` answer without one, and so does `GET /v1/tools`. To try tools, sign up in the
-mot3r panel at [mot3r.com/panel](https://mot3r.com/panel/) and use the free test key (mDM, mIRC, mURL read, comms,
-threat). To plug an agent into its line, you need a line key from + Add agent.
+**Key to look?**  
+No for `initialize` / `tools/list` / `GET /v1/tools`. Test key for a free try. Line key from + Add agent to attach.
 
-**What happens when the model changes?**
-Nothing is lost. The line keeps its address, MOM, wiring, persona and log. The new cable calls `line_attach`, receives
-the last handover and the SHELL, and goes on. One cable holds the line at a time.
+**Model change?**  
+Line keeps address, MOM, wiring, persona. New cable calls `line_attach`, gets SHELL + last handover.
 
-**Can two sessions use the same line?**
-Both can read; only one writes. The cable that holds the lease writes. The other gets 409 `lease_live` on
-`line_attach`, and 409 on every write, until the lease is free again: the holder releases it, it runs out 10
-minutes after its last renewal, or the owner switches the line to the other cable. Every tool call of the holder
-renews the lease, reads included.
+**Two sessions on one line?**  
+Both can read; one writes (lease holder). Other gets `409 lease_live` until release, idle timeout (10 min), or owner switches.
 
-**Is the data end-to-end encrypted?**
-Traffic made with a mot key travels over TLS and is readable by the service, because metering, MOM and audit need
-it. The line's files are stored encrypted on disk. Text indexed for `mRAG_search` is searchable on the server, so it
-is not end-to-end encrypted. Direct messages between two people can be end-to-end encrypted (`mDM_publish_keys`). A
-conversation with a line is not.
+**E2E encryption?**  
+TLS to mot. Files at rest encrypted. Indexed MOM text is searchable on the server (not E2E). Person-to-person mDM can be E2E (`mDM_publish_keys`). Line chats are not.
 
-**Are messages from Telegram or mail treated as instructions?**
-No. They arrive marked `trust: ext`. The server tells every client to treat them as data.
+**Telegram / mail as instructions?**  
+No — marked `trust: ext` (data).
 
-**Do you sell model access?**
-No. Every cable runs on your own model account, and your provider bills you for the model. mot bills only its own
-tool calls and services, from your prepaid balance.
+**Do you sell models?**  
+No. Your provider bills the model. mot bills tool calls from your prepaid balance.
 
-**Why does curl get 406 Not Acceptable?**
-The MCP endpoint wants a client that accepts both JSON and event streams. Send
-`Accept: application/json, text/event-stream` with every request to `/mcp`.
+**curl 406?**  
+Send `Accept: application/json, text/event-stream`.
 
-**Can I host the service myself?**
-No. This repository is the client side, under MIT. The service behind the gateway is hosted.
+**Self-host the service?**  
+No. This repo is the client (MIT). Gateway is hosted.
 
-**Is there a subscription?**
-No. You top up a prepaid balance (m✲n3y), from 10 USD. Each call is billed as it runs. See
-[PRICING.md](../PRICING.md).
+**Subscription?**  
+No. Starting credit at signup, then prepaid top-ups. [PRICING.md](../PRICING.md).
 
-**Where do I report a security problem?**
-Privately. See [SECURITY.md](../SECURITY.md).
+**Security report?**  
+[SECURITY.md](../SECURITY.md) — privately.
