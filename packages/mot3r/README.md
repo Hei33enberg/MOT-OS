@@ -1,6 +1,6 @@
 # mot3r
 
-Installer and stdio bridge for the [mot](https://github.com/Hei33enberg/mot-os#readme) gateway. One file,
+Installer and stdio bridge for the [mot](https://github.com/Hei33enberg/MOT-OS#readme) gateway. One file,
 `mot3r.mjs`. No dependencies. Node.js 18 or newer. MIT.
 
 ## Version

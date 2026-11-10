@@ -12,7 +12,7 @@ This repository is the client side of mot: the installer and stdio bridge, the e
 ## Set up
 
 ```bash
-git clone https://github.com/Hei33enberg/mot-os.git
+git clone https://github.com/Hei33enberg/MOT-OS.git
 cd mot-os
 pnpm install          # no dependencies; this only links the packages
 pnpm test             # installer tests + installers in sync with packages/mot3r

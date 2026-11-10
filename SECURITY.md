@@ -3,7 +3,7 @@
 ## Reporting a vulnerability
 
 Do not open a public issue. Report privately through GitHub:
-[Report a vulnerability](https://github.com/Hei33enberg/mot-os/security/advisories/new).
+[Report a vulnerability](https://github.com/Hei33enberg/MOT-OS/security/advisories/new).
 
 Include what you found, how to reproduce it, which version or endpoint is affected, and whether you plan to
 publish a write-up. Never include a working key. If a key of yours leaked, say where, and revoke it in the panel.

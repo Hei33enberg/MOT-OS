@@ -4,10 +4,10 @@
   "description": "Installer and stdio bridge for the mot gateway (npm client 0.3.4; hosted product is mot3r 0.3.9). Wires mcp.mot3r.com into Claude Code, Claude Desktop, Cursor and VS Code. No dependencies.",
   "license": "MIT",
   "type": "module",
-  "homepage": "https://github.com/Hei33enberg/mot-os/tree/main/packages/mot3r",
+  "homepage": "https://github.com/Hei33enberg/MOT-OS/tree/main/packages/mot3r",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Hei33enberg/mot-os.git",
+    "url": "https://github.com/Hei33enberg/MOT-OS.git",
     "directory": "packages/mot3r"
   },
   "bin": {

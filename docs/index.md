@@ -1,6 +1,6 @@
 # mot docs
 
-Client documentation for [mot-os](https://github.com/Hei33enberg/mot-os) (GitHub path is lowercase — `MOT-OS` 404s on case-sensitive hosts). Product brand: **mot3r**. Live site: [mot3r.com](https://mot3r.com).
+Client documentation for [MOT-OS](https://github.com/Hei33enberg/MOT-OS). Product brand: **mot3r**. Live site: [mot3r.com](https://mot3r.com).
 
 - [Quickstart](./quickstart.md)
 - [Tools](./tools.md)

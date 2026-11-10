@@ -3,10 +3,10 @@
   "version": "0.3.4",
   "private": true,
   "description": "mot — lines for agents. Client installer, stdio bridge, examples and docs (MIT). Private monorepo version tracks the published npm client mot3r@0.3.4; the hosted product on mot3r.com / mcp.mot3r.com is mot3r 0.3.9 (panel wersja.json). The hosted service is not in this repository.",
-  "homepage": "https://github.com/Hei33enberg/mot-os",
+  "homepage": "https://github.com/Hei33enberg/MOT-OS",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Hei33enberg/mot-os.git"
+    "url": "https://github.com/Hei33enberg/MOT-OS.git"
   },
   "license": "MIT",
   "type": "module",

@@ -20,12 +20,12 @@ One MCP endpoint: `https://mcp.mot3r.com/mcp` (Claude Code, Codex, Cursor, VS Co
 
 ```bash
 export MOT_KEY="mot_lk_live_xxxxxxxx"
-curl -fsSL https://raw.githubusercontent.com/Hei33enberg/mot-os/main/install/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/Hei33enberg/MOT-OS/main/install/install.sh | sh
 ```
 
 ```powershell
 $env:MOT_KEY="mot_lk_live_xxxxxxxx"
-irm https://raw.githubusercontent.com/Hei33enberg/mot-os/main/install/install.ps1 | iex
+irm https://raw.githubusercontent.com/Hei33enberg/MOT-OS/main/install/install.ps1 | iex
 ```
 
 3. Restart the client. Tell it: *Call `line_attach`.*
