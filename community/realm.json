@@ -1,0 +1,15 @@
+{
+  "$comment": "Machine-readable REALM ledger (see REALM.md). Levels: L1 Squire (1 substantive merged PR), L2 Knight (3+), L3 Baron (maintainer per MAINTAINERS.md), L4 Herald (named by the Crown). The founder is 'crown', outside the level ladder.",
+  "updated": "2026-11-10",
+  "members": {
+    "Hei33enberg": {
+      "name": "Joseph Matthew Damian White",
+      "role": "crown",
+      "level": null,
+      "merged_prs": 0,
+      "substantive_prs": 0,
+      "contributions": "client scaffold · installer · docs · governance",
+      "since": "2026"
+    }
+  }
+}

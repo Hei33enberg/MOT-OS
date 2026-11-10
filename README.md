@@ -162,7 +162,7 @@ Encrypted file storage + searchable index for what the line chooses to keep. `mR
 - Panel: [mot3r.com/panel](https://mot3r.com/panel/)
 - Docs: [mot3r.com/docs](https://mot3r.com/docs) · [docs/](./docs)
 - Prices: [api.mot3r.com/v1/pricing](https://api.mot3r.com/v1/pricing) · [PRICING.md](./PRICING.md)
-- [MANIFESTO.md](./MANIFESTO.md)
+- [MANIFESTO.md](./MANIFESTO.md) · [REALM.md](./REALM.md) · [HALL_OF_FAME.md](./HALL_OF_FAME.md)
 
 ## Repo
 
@@ -171,7 +171,8 @@ Encrypted file storage + searchable index for what the line chooses to keep. `mR
 | `packages/mot3r` | installer + stdio bridge (npm **0.3.4**, no deps) |
 | `install/` | one-line sh / PowerShell |
 | `examples/` | Node, Python, curl |
-| `docs/` | quickstart, tools, auth, limits, FAQ |
+| `docs/` | quickstart, tools, auth, limits, words, architecture, FAQ |
+| `community/` | realm ledger (`realm.json`) |
 
 `pnpm test` — installer tests + installers in sync with `mot3r.mjs`.
 
