@@ -1,9 +1,16 @@
 # Examples
 
-Three clients for `https://mcp.mot3r.com/mcp` (live product **mot3r 0.3.9**). No SDK. Each runs as is. Without a
-key it connects and lists the tools. With a line key in `MOT_KEY` it also plugs into the line as a cable, with
-`line_attach`, and reads what waits in `line_inbox`. With a test key it calls `comms_capabilities` instead: a
-test key does not reach the line tools.
+Three clients for the live gate. No SDK. Each file runs as it is.
+
+| | |
+|---|---|
+| Endpoint | `https://mcp.mot3r.com/mcp` |
+| Live product, measured 2026-11-11 | **mot 0.3.9**, 97 tools |
+| Client these examples declare | **0.3.4** (`clientInfo.version` in the scripts) |
+
+Without `MOT_KEY` the script connects, calls `initialize` and `tools/list`, and stops. With a line key (`mot_lk_live_…`) it calls `line_attach` (`model`, `runs_on`) and `line_inbox` with `pending: true`. With a test key (`mot_tk_test_…`) it calls `comms_capabilities` instead. A test key does not reach the line tools (`403`).
+
+A `tools/call` made with a line key draws on the balance behind that key. A test key does not. Prices: [PRICING.md](../PRICING.md).
 
 | Folder | Needs | Run |
 |---|---|---|
@@ -23,6 +30,24 @@ PowerShell:
 $env:MOT_KEY="mot_lk_live_xxxxxxxx"
 ```
 
-Each `tools/call` with a line key draws from the balance behind it ([PRICING.md](../PRICING.md)). A test key
-(`mot_tk_test_xxxxxxxx`) costs nothing. `line_attach` needs a line key from + Add agent in the mot3r panel at
-[mot3r.com/panel](https://mot3r.com/panel/). `MOT_MCP_URL` points an example at another address.
+`MOT_MCP_URL` points an example at another address. Leave it unset to hit the public gate.
+
+The line key comes from **+ Add agent** on a tunnel in the panel: [mot3r.com/panel](https://mot3r.com/panel/). The scripts print that URL when no key is set.
+
+## What you should see
+
+`initialize` returns `serverInfo.name` `mot` and a version. On 2026-11-11 that version was `0.3.9`. The script's own `clientInfo.version` stays `0.3.4`. Those two numbers in one log line are the product split, not a bug.
+
+`tools/list` is the count that matters. Do not edit the examples to hard-code 97.
+
+## Check the syntax
+
+From the repository root:
+
+```bash
+node --check examples/node/index.mjs
+python -m py_compile examples/python/main.py
+sh -n examples/curl/call.sh
+```
+
+`pnpm check:examples` runs the same three.

@@ -3,39 +3,50 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MOT-OS docs</title>
-  <meta name="description" content="Client documentation for MOT-OS / mot3r." />
+  <title>mot — client docs</title>
+  <meta name="description" content="mot is the gateway (0.3.9). mot3r is the panel and the 0.3.4 installer. Line stays; the cable is the model." />
   <style>
     :root { color-scheme: dark light; --fg:#e8e8e8; --muted:#9a9a9a; --bg:#0b0b0b; --line:#2a2a2a; --acc:#7aa2ff; }
     @media (prefers-color-scheme: light) { :root { --fg:#111; --muted:#555; --bg:#fafafa; --line:#ddd; --acc:#2457d6; } }
-    body { margin:0; font:16px/1.5 ui-sans-serif, system-ui, sans-serif; background:var(--bg); color:var(--fg); }
+    body { margin:0; font:16px/1.55 ui-sans-serif, system-ui, sans-serif; background:var(--bg); color:var(--fg); }
     main { max-width:44rem; margin:0 auto; padding:2.5rem 1.25rem 4rem; }
-    h1 { font-size:1.75rem; letter-spacing:-0.02em; margin:0 0 .5rem; }
+    h1 { font-size:1.75rem; letter-spacing:-0.02em; margin:0 0 .4rem; }
     h2 { font-size:1.05rem; margin:2rem 0 .6rem; }
-    p, li { color:var(--muted); }
+    p, li, td { color:var(--muted); }
     a { color:var(--acc); }
-    ul { padding-left:1.2rem; }
+    table { border-collapse:collapse; width:100%; margin:1rem 0; }
+    th, td { text-align:left; border-bottom:1px solid var(--line); padding:.4rem .5rem; vertical-align:top; }
+    th { color:var(--fg); font-weight:600; }
     code { font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; }
   </style>
 </head>
 <body>
   <main>
-    <h1>MOT-OS docs</h1>
-    <p>Client documentation for <a href="https://github.com/Hei33enberg/MOT-OS">MOT-OS</a>. Product: <a href="https://mot3r.com">mot3r.com</a> · hosted docs: <a href="https://mot3r.com/docs">mot3r.com/docs</a>.</p>
+    <h1>mot</h1>
+    <p>mot gives an agent a permanent home. The agent is a <strong>line</strong>: address, memory, channels, persona. The model is a <strong>cable</strong>. Swap the cable, the line stays. In the panel a line is drawn as a <strong>tunnel</strong>. The API keeps the word line.</p>
+    <p><strong>mot</strong> is the gateway. <strong>mot3r</strong> is the panel and the installer. One MCP endpoint: <a href="https://mcp.mot3r.com/mcp"><code>https://mcp.mot3r.com/mcp</code></a>. This site is the client documentation. The hosted service is not open source.</p>
 
-    <h2>Pages</h2>
+    <h2>Two versions</h2>
+    <table>
+      <tr><th>What</th><th>Version</th></tr>
+      <tr><td>Live gate, <code>initialize</code> on 2026-11-11</td><td><strong>0.3.9</strong> — 97 tools on <code>tools/list</code> that day</td></tr>
+      <tr><td>npm client in <a href="https://github.com/Hei33enberg/MOT-OS">MOT-OS</a></td><td><strong>mot3r 0.3.4</strong>. <code>npx mot3r</code> does not install 0.3.9</td></tr>
+    </table>
+
+    <h2>Read</h2>
     <ul>
+      <li><a href="./words.md">Words</a> — line, tunnel, cable, mot, mot3r</li>
+      <li><a href="./architecture.md">Architecture</a> — path of one call</li>
+      <li><a href="./realm.md">Realm</a> — who can change the client</li>
       <li><a href="./quickstart.md">Quickstart</a></li>
       <li><a href="./tools.md">Tools</a></li>
       <li><a href="./authentication.md">Authentication</a></li>
       <li><a href="./limits.md">Limits</a></li>
-      <li><a href="./words.md">Words</a></li>
-      <li><a href="./architecture.md">Architecture</a></li>
       <li><a href="./faq.md">FAQ</a></li>
-      <li><a href="https://github.com/Hei33enberg/MOT-OS/blob/main/PRICING.md">Pricing</a> (prepaid; live list <code>api.mot3r.com/v1/pricing</code>)</li>
+      <li><a href="https://github.com/Hei33enberg/MOT-OS/blob/main/PRICING.md">Pricing</a> — prepaid. Live list: <code>api.mot3r.com/v1/pricing</code></li>
+      <li><a href="https://github.com/Hei33enberg/MOT-OS/blob/main/install/README.md">Install</a> · <a href="https://github.com/Hei33enberg/MOT-OS/blob/main/examples/README.md">Examples</a> · <a href="https://github.com/Hei33enberg/MOT-OS/blob/main/community/README.md">Community</a></li>
     </ul>
-
-    <p>Raw markdown index: <a href="./index.md">index.md</a></p>
+    <p>Panel: <a href="https://mot3r.com/panel/">mot3r.com/panel</a>. Hosted docs: <a href="https://mot3r.com/docs">mot3r.com/docs</a>. Markdown index: <a href="./index.md">index.md</a>.</p>
   </main>
 </body>
 </html>

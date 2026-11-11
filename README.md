@@ -6,12 +6,13 @@ One MCP endpoint: `https://mcp.mot3r.com/mcp` (Claude Code, Codex, Cursor, VS Co
 
 **mot** = gateway. **mot3r** = panel + installer. In the panel a line is a *tunnel*; the API keeps *line*.
 
-| What | Version |
-|---|---|
-| Live product (panel / `mcp.mot3r.com`) | **mot3r 0.3.9** |
-| npm client in this repo (`mot3r`) | **0.3.4** |
+| What | Version | Where it was read |
+|---|---|---|
+| Live gate (`mcp.mot3r.com`) | **mot 0.3.9** | `initialize` → `serverInfo`, 2026-11-11. Title that day: "mot — tunnels for agents" |
+| Tool list on that gate | **97** tools | `tools/list`, same day, no key |
+| npm client in this repo (`mot3r`) | **0.3.4** | `packages/mot3r/package.json` and `VERSION` in `mot3r.mjs` |
 
-`tools/list` returns the live tool count (**97** on 0.3.9 today). `npx mot3r` installs the **0.3.4** client — it does not install product 0.3.9.
+`npx mot3r` installs the **0.3.4** client. It does not install 0.3.9. The next `tools/list` is the count that counts; 97 is the measurement, not a constant in code.
 
 ## Start
 
@@ -162,17 +163,17 @@ Encrypted file storage + searchable index for what the line chooses to keep. `mR
 - Panel: [mot3r.com/panel](https://mot3r.com/panel/)
 - Docs: [mot3r.com/docs](https://mot3r.com/docs) · [docs/](./docs)
 - Prices: [api.mot3r.com/v1/pricing](https://api.mot3r.com/v1/pricing) · [PRICING.md](./PRICING.md)
-- [MANIFESTO.md](./MANIFESTO.md) · [REALM.md](./REALM.md) · [HALL_OF_FAME.md](./HALL_OF_FAME.md)
+- [MANIFESTO.md](./MANIFESTO.md) · [REALM.md](./REALM.md) · [docs/words.md](./docs/words.md) · [docs/architecture.md](./docs/architecture.md) · [HALL_OF_FAME.md](./HALL_OF_FAME.md)
 
 ## Repo
 
 | Path | What |
 |---|---|
 | `packages/mot3r` | installer + stdio bridge (npm **0.3.4**, no deps) |
-| `install/` | one-line sh / PowerShell |
-| `examples/` | Node, Python, curl |
-| `docs/` | quickstart, tools, auth, limits, words, architecture, FAQ |
-| `community/` | realm ledger (`realm.json`) |
+| `install/` | one-line sh / PowerShell — [what they do](./install/README.md) |
+| `examples/` | Node, Python, curl — [how to run them](./examples/README.md) |
+| `docs/` | quickstart, tools, auth, limits, [words](./docs/words.md), [architecture](./docs/architecture.md), [realm](./docs/realm.md), FAQ |
+| `community/` | how to take part, plus the ledger `realm.json` |
 
 `pnpm test` — installer tests + installers in sync with `mot3r.mjs`.
 

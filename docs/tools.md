@@ -1,6 +1,6 @@
 # Tools
 
-How to call tools, line/vault arguments, and a one-line index. Full schemas: `tools/list` (no key). Live count changes with the product — check the endpoint (**97** tools on mot3r **0.3.9** at publish of these docs).
+How to call tools, line and vault arguments, and where the names come from. Full schemas: `tools/list` (no key). Measured **2026-11-11**: **97** tools, `serverInfo.version` **0.3.9**. The endpoint wins if the count moves. The npm client stays **0.3.4**.
 
 ```bash
 curl -sS https://mcp.mot3r.com/mcp \
